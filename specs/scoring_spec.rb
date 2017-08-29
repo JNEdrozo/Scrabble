@@ -32,7 +32,7 @@ end
 
 describe "self#highest_score_from(array_of_words)" do
   it "returns a string in the array" do
-    Scrabble::Scoring.highest_score_from("animals").class.must_equal Array
+    Scrabble::Scoring.highest_score_from(["animals"]).class.must_equal Array
   end
 
 end
