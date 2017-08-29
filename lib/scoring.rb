@@ -1,10 +1,8 @@
 module Scrabble
   class Scoring
 
-    attr_reader :letters_score
-    
-    def initialize
-      @letters_score = {
+
+      LETTER_VALUES = {
         A: 1,
         B: 3,
         C: 3,
@@ -32,6 +30,13 @@ module Scrabble
         Y: 4,
         Z: 10
       }
+
+
+    def self.score(word)
+      word = word.upcase.split("")
+      score = word.map {|letter| LETTER_VALUES[letter.to_sym]}.reduce(:+)
+
     end
-  end
-end
+  end #end of class
+
+end #end of module
