@@ -1,19 +1,14 @@
 require_relative 'spec_helper'
 
 describe "Scoring" do
-  # before do
-  #   @test_scoring = Scrabble::Scoring.new
-  # end
+ it "returns an integer for a letter tile" do
+   Scrabble::Scoring.score("z").class.must_equal Integer
+ end
 
-  it 'can create an instance of scoring' do
-    letters_score = Scrabble::Scoring.new
-    letters_score.must_be_instance_of Scrabble::Scoring
-  end
+ it "returns the correct value for a letter tile" do
+   Scrabble::Scoring.score("z").must_equal 10
+ end
 
-  it 'returns a hash of letters and their score values' do
-    letters_score = Scrabble::Scoring.new
-    letters_score.must_be_kind_of Array #should be a hash
-  end
 
   it 'check to see if word passed in self.score is a string' do
     #arrange/set up variable
