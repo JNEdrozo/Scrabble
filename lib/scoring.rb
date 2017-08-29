@@ -34,11 +34,13 @@ module Scrabble
 
 
     def self.score(word)
+      raise ArgumentError.new("Word argument must be a string") if !word.is_a? String
       word = word.upcase.split("")
       score = word.map {|letter| LETTER_VALUES[letter.to_sym]}.reduce(:+)
-
+      word.length == 7 ? score += 50 : score
     end
-<<<<<<< HEAD
+
+
   end
 end
 
