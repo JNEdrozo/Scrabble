@@ -1,7 +1,7 @@
 require_relative 'spec_helper'
 
 describe "Scoring" do
-  describe "#score" do
+  describe "self#score" do
 
     it 'check to see if word passed in self.score is a string' do
       word = 100004
@@ -30,6 +30,9 @@ describe "Scoring" do
 
 end
 
-# describe "#self.highest_score_from(array_of_words)"
-#
-# end
+describe "self#highest_score_from(array_of_words)" do
+  it "returns a string in the array" do
+    Scrabble::Scoring.highest_score_from("animals").class.must_equal Array
+  end
+
+end

@@ -41,12 +41,12 @@ module Scrabble
     end
 
     def self.highest_score_from(array_of_words)
+      scored_words = array_of_words.map {|word| self.score(word)}
+
     end
-  end
-end
 
-=begin
+  end #end of class
 
+end #end of module
 
-
-=end
+puts
