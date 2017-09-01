@@ -4,6 +4,7 @@ SimpleCov.start
 require 'minitest'
 require 'minitest/autorun'
 require 'minitest/reporters'
+require_relative '../lib/tilebag' #why do tests not work at bottom
 require_relative '../lib/scoring'
 require_relative '../lib/player'
 # require_relative '../lib/wave-2-game'

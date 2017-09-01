@@ -10,9 +10,9 @@ module Scrabble
     end
 
     #plays method: returns an Array of the words played by the player
-    def plays
-      return @plays
-    end
+    # def plays
+    #   return @plays
+    # end
 
     def play(word)
       @plays << word.upcase #Adds the input word to the plays Array
