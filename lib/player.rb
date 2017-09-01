@@ -6,29 +6,27 @@ module Scrabble
       raise ArgumentError.new("Name must be a string") if !name.is_a? String
       @name = name
       @plays = []
-
     end
 
-    #plays method: returns an Array of the words played by the player
-    # def plays
-    #   return @plays
-    # end
-
     def play(word)
-      @plays << word.upcase #Adds the input word to the plays Array
-      return Scrabble::Scoring.score(word)
-      #Returns false if player has already won
-      #Returns the score of the word
+      if won?
+        return false #Returns false if player has already won
+      else
+        @plays << word.upcase #Adds the input word to the plays Array
+        return Scrabble::Scoring.score(word) #Returns the score of the word
+      end
+
     end
 
     def total_score #Returns the sum of scores of played words
+      return 0 if @plays ==[]
       @plays.map { |word| Scrabble::Scoring.score(word) }.reduce(:+)
     end
 
     # private   #won? should be a private method
     def won?
       #won?: If the player has over 100 points, returns true, otherwise returns false
-      if total_score >= 100
+      if total_score > 100
         return true
       else
         return false
@@ -60,3 +58,7 @@ module Scrabble
 
   end#of_Player_class
 end#of_Scrabble_module
+#
+# playa = Scrabble.Player.new
+# puts "Playing"
+# puts playa.play("dog")
