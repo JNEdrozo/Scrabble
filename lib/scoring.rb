@@ -33,9 +33,11 @@ module Scrabble
     #returns the total score for the given word
     def self.score(word)
       raise ArgumentError.new("Word argument must be a string") if !word.is_a? String
-
+      pattern = /^[a-zA-Z]+/
       #UPDATE: raise error if word is not alpha (else doesn't need a condition)
-      if word[/^[a-zA-Z]+/] != word
+      # if !word[/^[a-zA-Z]+/] != word
+      # if pattern.match(word) != true why error?
+      if pattern.match(word) == false
         raise ArgumentError.new("Word argument contain only letters")
       elsif word.length > 7
         raise ArgumentError.new("Word argument cannot be longer than 7 letters")
